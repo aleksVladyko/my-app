@@ -26,7 +26,6 @@ export class AppComponent {
     return item.id;
   }
   selectItemUser(item: { id: number; name: string }): void {
-    console.log(item.name);
     this.dataService.removeItemFromUser(item);
     this.selectedItemUser = [...this.selectedItemUser, item.name];
   }
@@ -41,9 +40,6 @@ export class AppComponent {
   }
 
   selectItem(item: { id: number; name: string }): void {
-    console.log(item.id);
-
-    // Добавляем предыдущий выбранный элемент обратно в itemsOfChoice, если другой элемент уже был выбран
     if (this.selectedItemFromChoice) {
       const previousSelectedItem = {
         id: this.dataService.itemsOfChoice.length + 1,
